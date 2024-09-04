@@ -4,8 +4,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CodeMirror from "@uiw/react-codemirror";
 import { vscodeDark } from "@uiw/codemirror-theme-vscode";
-// import {API_KEY} from './API.js'
-function ImageGenerator() {
+import {API_KEY} from './API.js'
+function TextGenerator() {
     const [text,settext]=useState('')
     const [input,setinput]=useState('')
    const [tf,settf]=useState(true)
@@ -22,7 +22,7 @@ function ImageGenerator() {
        }
         try {
           settf(false)
-          const apiKey = 'AIzaSyDlxbqF6qai5YioslMN2OB8lmGJULL2NOE'
+          const apiKey = API_KEY
           const genAI = new GoogleGenerativeAI(apiKey);
           const model = genAI.getGenerativeModel({ model: "gemini-pro"});
           const response = await model.generateContent(input);
